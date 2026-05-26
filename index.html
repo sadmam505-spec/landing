@@ -52,6 +52,34 @@
 					.feature-box { background: #1e293b; padding: 15px; border-radius: 12px; font-size: 13px; border: 1px solid #334155;}
 					.footer { font-size: 12px; color: #64748b; margin-top: 40px; }
 					.footer a { color: #3b82f6; text-decoration: none; margin: 0 5px; }
+
+
+					/* বাটন স্টাইল এবং ক্লিক ইফেক্ট */
+					.btn-telegram {
+					background-color: #3b82f6; /* তোমার বাটনের কালার */
+					color: white;
+					padding: 15px 30px;
+					border-radius: 10px;
+					text-decoration: none;
+					display: inline-block;
+					font-weight: bold;
+					text-align: center;
+
+					/* এই ৩টি লাইন ক্লিক ইফেক্টের জন্য জাদুর মতো কাজ করবে */
+					transition: transform 0.1s ease, background-color 0.3s;
+					cursor: pointer;
+					border: none;
+					}
+
+					/* ক্লিক করার মুহূর্তের জন্য */
+					.btn-telegram:active {
+					transform: scale(0.95); /* বাটন ৫% ছোট হবে */
+					}
+
+					/* বাটনের ওপর মাউস নিলে একটু উজ্জ্বল হবে (অপশনাল) */
+					.btn-telegram:hover {
+					background-color: #2563eb;
+					}
 				</style>
 			</head>
 	<body>
