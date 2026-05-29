@@ -4,6 +4,15 @@
 		<meta charset="UTF-8">
 			<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 				<title>Gritorax </title>
+
+				<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-4T7QLFY7TP"></script>
+				<script>
+					window.dataLayer = window.dataLayer || [];
+					function gtag(){dataLayer.push(arguments);}
+					gtag('js', new Date());
+					gtag('config', 'G-4T7QLFY7TP');
+				</script>
+
 				<style>
 
 
@@ -95,12 +104,20 @@
 			<div class="hero-card">
 				<div class="glowing-bonus">Claim Your 10,000 Coins Welcome bonus!</div>
 				<div class="premium-box">Stop Scrolling, Start Earning</div>
+				
 
-				<p style="font-size: 14px; color: #94a3b8;">Elevate Your Earnings. Join the Telegram Revolution.</p>
-				<a href="https://t.me/gritorax_bot/app" class="btn-telegram">
+				<a href="https://t.me/gritorax_bot/app"
+	   target="_blank"
+	   rel="noopener noreferrer"
+	   id="telegram-button"
+	   class="btn-telegram">
 					<span>Start Earning Now 💸</span>
 				</a>
-				<p style="font-size: 12px;">Step: Click on "Start Earning Now" > Open Telegram App</p>
+				
+				
+				
+				
+				<p style="font-size: 12px;">Important: If the link doesn't open automatically, please tap the three dots (⋮) at the top right corner and select "Open in browser".</p>
 			</div>
 
 			<div class="features">
@@ -116,5 +133,18 @@
 				<a href="https://gritorax.com/terms_and_conditions/" target="_blank">Terms and Conditions</a>
 			</div>
 		</div>
+
+		<script>
+			document.getElementById('telegram-button').addEventListener('click', function() {
+			// Google Analytics-e event pathano
+			gtag('event', 'telegram_button_click', {
+			'event_category': 'Engagement',
+			'event_label': 'Start Earning Now Button'
+			});
+
+			console.log("Button click tracked!"); // Test korar jonno console-e dekha jabe
+			});
+		</script>
+		
 	</body>
 </html>
