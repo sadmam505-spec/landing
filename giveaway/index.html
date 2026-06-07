@@ -93,7 +93,9 @@
 			</p>
 			<div style="background:#000; padding:15px; border-radius:10px; border:1px solid #ffcc00; margin:15px 0;">
 				<input type="text" id="myLink" value="${window.location.href}" readonly="" style="width:100%; background:transparent; color:#fff; border:none; text-align:center; font-size:1.1rem; margin-bottom:10px;">
-					<button onclick="copyLink()" style="background:#ffcc00; color:#000; border:none; padding:10px 20px; border-radius:5px; font-weight:bold; cursor:pointer;">COPY LINK</button>
+					<button onclick="copyLink(); gtag('event', 'copy_link_click');" style="background:#ffcc00; color:#000; border:none; padding:10px 20px; border-radius:5px; font-weight:bold; cursor:pointer;">
+						COPY LINK
+					</button>
 				</div>
 			`;
 			}
