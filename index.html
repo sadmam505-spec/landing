@@ -1,731 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-		<title>New User Bonus</title>
-		<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-4T7QLFY7TP"></script>
-		<script>
-			window.dataLayer = window.dataLayer || [];
-			function gtag(){dataLayer.push(arguments);}
-			gtag('js', new Date());
-			gtag('config', 'G-4T7QLFY7TP');
-		</script>
-
-		<!-- Meta Pixel Code -->
-		<script>
-			!function(f,b,e,v,n,t,s)
-			{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-			n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-			if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-			n.queue=[];t=b.createElement(e);t.async=!0;
-			t.src=v;s=b.getElementsByTagName(e)[0];
-			s.parentNode.insertBefore(t,s)}(window, document,'script',
-			'https://connect.facebook.net/en_US/fbevents.js');
-			fbq('init', '323205088339611');
-			fbq('track', 'PageView');
-		</script>
-		<noscript>
-			<img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=323205088339611&ev=PageView&noscript=1"
-/>
-		</noscript>
-		<!-- End Meta Pixel Code -->
-		
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-		<style>
-			* {
-			box-sizing: border-box;
-			-webkit-tap-highlight-color: transparent;
-			}
-
-			body {
-			background-color: #000;
-			color: #fff;
-			font-family: 'Inter', sans-serif;
-			margin: 0;
-			padding: 0;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			height: 100vh;
-			overflow: hidden;
-			}
-
-			/* Main Phone Frame Container */
-			.phone-container {
-			width: 100%;
-			height: 100%;
-			max-width: 400px;
-			background-color: #000;
-			border: 2px solid #222;
-			border-radius: 30px;
-			overflow-y: auto;
-			display: flex;
-			flex-direction: column;
-			box-shadow: 0 10px 30px rgba(0,0,0,0.7);
-			padding: 20px 16px 40px 16px;
-			position: relative;
-			transition: filter 0.3s ease;
-			}
-
-			/* Blurring the main page when popup is active */
-			.phone-container.blur-active {
-			filter: blur(8px);
-			pointer-events: none;
-			}
-
-			.phone-container::-webkit-scrollbar {
-			width: 4px;
-			}
-			.phone-container::-webkit-scrollbar-thumb {
-			background: #222;
-			border-radius: 10px;
-			}
-
-			/* ==========================================================================
-			1. PREMIUM HEADER STATION
-			========================================================================== */
-			.header-station {
-			width: 100%;
-			display: flex;
-			align-items: center;
-			margin-bottom: 24px;
-			padding: 5px 0;
-			}
-
-			.back-link {
-			color: #f39c12;
-			font-size: 1.2rem;
-			text-decoration: none;
-			width: 40px;
-			outline: none;
-			transition: transform 0.1s;
-			}
-			.back-link:active { transform: scale(0.95); }
-
-			.header-title-block {
-			flex: 1;
-			text-align: center;
-			margin-right: 40px;
-			}
-
-			.header-title-block h1 {
-			margin: 0;
-			font-size: 1.3rem;
-			font-weight: 850;
-			letter-spacing: 1px;
-			color: #f39c12;
-			text-transform: uppercase;
-			}
-
-			/* ==========================================================================
-			2. TOTAL BALANCE & REDEEM INTERFACE
-			========================================================================== */
-			.balance-card {
-			background: linear-gradient(180deg, #070707 0%, #030303 100%);
-			border: 1px solid #141414;
-			border-radius: 20px;
-			padding: 20px;
-			text-align: center;
-			margin-bottom: 24px;
-			}
-
-			.balance-label {
-			font-size: 0.7rem;
-			color: #555;
-			font-weight: 700;
-			text-transform: uppercase;
-			letter-spacing: 1px;
-			margin-bottom: 6px;
-			}
-
-			.balance-amount {
-			font-size: 1.8rem;
-			font-weight: 900;
-			color: #fff;
-			letter-spacing: 0.5px;
-			}
-
-			.balance-amount span {
-			color: #f39c12;
-			font-size: 1.2rem;
-			font-weight: 800;
-			margin-left: 4px;
-			}
-
-			/* PREMIUM GRADIENT BUTTON WITH REFLECTIVE SHINE */
-			.btn-redeem-trigger {
-			width: 100%;
-			background: linear-gradient(135deg, #f39c12 0%, #d35400 100%);
-			color: #000;
-			border: none;
-			border-radius: 14px;
-			padding: 15px;
-			font-size: 0.85rem;
-			font-weight: 850;
-			text-transform: uppercase;
-			letter-spacing: 0.8px;
-			cursor: pointer;
-			margin-top: 18px;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			gap: 10px;
-			outline: none;
-			position: relative;
-			overflow: hidden;
-			box-shadow: 0 4px 15px rgba(243, 156, 18, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.2);
-			transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-			}
-
-			.btn-redeem-trigger::before {
-			content: '';
-			position: absolute;
-			top: 0;
-			left: -100%;
-			width: 50%;
-			height: 100%;
-			background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
-			transform: skewX(-25deg);
-			animation: premiumShine 4s infinite ease-in-out;
-			}
-
-			.btn-redeem-trigger:active {
-			transform: scale(0.97);
-			box-shadow: 0 2px 8px rgba(243, 156, 18, 0.1);
-			background: linear-gradient(135deg, #d35400 0%, #b33900 100%);
-			}
-
-			/* ==========================================================================
-			3. LIVE PROOFS LABELS & LISTVIEW (RESPONSIVE GRID)
-			========================================================================== */
-			.live-section-title {
-			font-size: 0.8rem;
-			font-weight: 850;
-			letter-spacing: 1px;
-			color: #fff;
-			margin: 0 0 12px 0;
-			text-transform: uppercase;
-			display: flex;
-			align-items: center;
-			gap: 8px;
-			}
-
-			.live-dot {
-			color: #2ec4b6;
-			animation: blink 1.5s infinite;
-			}
-
-			/* Table Header Row - Grid System */
-			.table-label-row {
-			display: grid;
-			grid-template-columns: 1.4fr 1.2fr 1fr;
-			padding: 0 14px 8px 14px;
-			border-bottom: 1px solid #111;
-			margin-bottom: 10px;
-			}
-
-			.label-text {
-			font-size: 0.65rem;
-			color: #444;
-			font-weight: 700;
-			text-transform: uppercase;
-			letter-spacing: 0.5px;
-			}
-			.lbl-time { text-align: left; }
-			.lbl-amount { text-align: center; }
-			.lbl-status { text-align: right; }
-
-			/* Dynamic ListView Container */
-			.proof-listview {
-			display: flex;
-			flex-direction: column;
-			gap: 8px;
-			position: relative;
-			}
-
-			/* Row Base - Grid Layout for Guaranteed Responsiveness */
-			.listview-item {
-			background: #050505;
-			border: 1px solid #111;
-			border-radius: 12px;
-			padding: 12px 14px;
-
-			display: grid;
-			grid-template-columns: 1.4fr 1.2fr 1fr;
-			align-items: center;
-
-			max-height: 60px;
-			opacity: 1;
-			transform: translateY(0);
-			transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-			}
-
-			/* Animation class assigned dynamically to 1st position */
-			.listview-item.new-payout-animate {
-			animation: premiumSlideTop 0.8s cubic-bezier(0.19, 1, 0.22, 1) forwards;
-			}
-
-			/* ডেট টাইম ফন্ট সাইজ (প্রয়োজন অনুযায়ী এখান থেকে চেঞ্জ করতে পারবেন) */
-			.item-time {
-			font-size: 0.7rem;
-			color: #666;
-			font-weight: 700;
-			letter-spacing: 0.5px;
-			font-family: 'Courier New', Courier, monospace;
-			text-align: left;
-			}
-
-			/* অ্যামাউন্ট ফন্ট সাইজ অপ্টিমাইজড */
-			.item-amount {
-			font-size: 0.8rem;
-			font-weight: 855;
-			color: #f39c12;
-			text-align: center;
-			white-space: nowrap;
-			}
-
-			/* প্রিমিয়াম বক্স টাইপ স্ট্যাটাস ক্যাপসুল ব্যাজ - ১০০% পলিসি সেফ */
-			.item-status {
-			font-size: 0.62rem;
-			font-weight: 800;
-			color: #00ffcc;
-			text-transform: uppercase;
-			letter-spacing: 0.8px;
-
-			background: rgba(0, 255, 204, 0.05);
-			border: 1px solid rgba(0, 255, 204, 0.15);
-			padding: 5px 10px;
-			border-radius: 6px;
-			box-shadow: 0 0 10px rgba(0, 255, 204, 0.03);
-
-			display: inline-flex;
-			align-items: center;
-			justify-content: center;
-			gap: 4px;
-			width: fit-content;
-			min-width: 82px;
-			justify-self: end;
-			}
-
-			.proof-loading {
-			font-size: 0.75rem;
-			color: #444;
-			text-align: center;
-			padding: 20px;
-			font-weight: 600;
-			letter-spacing: 0.5px;
-			}
-
-			/* ==========================================================================
-			4. CINEMATIC GLASSMORPHISM POPUP ALERT
-			========================================================================== */
-			.popup-overlay {
-			position: fixed;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			background: rgba(0, 0, 0, 0.6);
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			z-index: 9999;
-			opacity: 0;
-			pointer-events: none;
-			transition: opacity 0.3s ease;
-			padding: 20px;
-			}
-
-			.popup-overlay.show {
-			opacity: 1;
-			pointer-events: auto;
-			}
-
-			.popup-card {
-			background: linear-gradient(180deg, #0a0a0a 0%, #050505 100%);
-			border: 1px solid #222;
-			width: 100%;
-			max-width: 340px;
-			border-radius: 24px;
-			padding: 24px;
-			position: relative;
-			text-align: center;
-			transform: translateY(20px);
-			transition: transform 0.3s ease;
-			box-shadow: 0 20px 40px rgba(0,0,0,0.8);
-			}
-
-			.popup-overlay.show .popup-card {
-			transform: translateY(0);
-			}
-
-			.popup-close-btn {
-			position: absolute;
-			top: 16px;
-			right: 16px;
-			background: none;
-			border: none;
-			color: #555;
-			font-size: 1.1rem;
-			cursor: pointer;
-			outline: none;
-			transition: color 0.2s;
-			}
-			.popup-close-btn:hover { color: #fff; }
-
-			.popup-icon-frame {
-			width: 54px;
-			height: 54px;
-			background: rgba(243, 156, 18, 0.1);
-			border: 1px solid rgba(243, 156, 18, 0.2);
-			color: #f39c12;
-			font-size: 1.5rem;
-			border-radius: 50%;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			margin: 10px auto 16px auto;
-			box-shadow: 0 0 15px rgba(243, 156, 18, 0.15);
-			}
-
-			.popup-card h2 {
-			margin: 0;
-			font-size: 1.1rem;
-			font-weight: 850;
-			color: #fff;
-			text-transform: uppercase;
-			letter-spacing: 0.5px;
-			}
-
-			.popup-card p {
-			font-size: 0.78rem;
-			color: #aaa;
-			line-height: 1.5;
-			margin: 12px 0 20px 0;
-			font-weight: 500;
-			}
-
-			.popup-card p b {
-			color: #f39c12;
-			font-weight: 700;
-			}
-
-			.btn-earn-more {
-			width: 100%;
-			background: #111;
-			color: #aaa;
-			border: 1px solid #222;
-			border-radius: 12px;
-			padding: 12px;
-			font-size: 0.8rem;
-			font-weight: 700;
-			text-transform: uppercase;
-			letter-spacing: 0.5px;
-			cursor: pointer;
-			outline: none;
-			transition: all 0.2s;
-			}
-			.btn-earn-more:active {
-			background: #161616;
-			transform: scale(0.98);
-			}
-
-			/* Keyframes Engines */
-			@keyframes blink {
-			0% { opacity: 0.3; }
-			50% { opacity: 1; }
-			100% { opacity: 0.3; }
-			}
-
-			@keyframes premiumSlideTop {
-			0% {
-			opacity: 0;
-			max-height: 0;
-			padding-top: 0;
-			padding-bottom: 0;
-			margin-bottom: -8px;
-			transform: translateY(-20px) scale(0.97);
-			}
-			40% {
-			opacity: 0.3;
-			max-height: 60px;
-			padding-top: 12px;
-			padding-bottom: 12px;
-			margin-bottom: 0;
-			}
-			100% {
-			opacity: 1;
-			transform: translateY(0) scale(1);
-			}
-			}
-
-			/* Shiny Glow Effect Keyframe */
-			@keyframes premiumShine {
-			0% { left: -100%; }
-			20% { left: 100%; }
-			100% { left: 100%; }
-			}
-
-
-			/* Payout Method Capsule */
-			.payout-method-box {
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			gap: 8px;
-			margin-top: 15px;
-			padding: 8px 15px;
-			background: #0a0a0a;
-			border: 1px solid #1a1a1a;
-			border-radius: 12px;
-			}
-			.payout-method-box img {
-			width: 20px;
-			height: 20px;
-			border-radius: 5px;
-			}
-			.payout-method-text {
-			font-size: 0.7rem;
-			color: #888;
-			text-transform: uppercase;
-			font-weight: 700;
-			}
-			.payout-method-text b {
-			color: #fff;
-			letter-spacing: 0.5px;
-			}
-		</style>
-	</head>
+		<meta charset="UTF-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+				<title>MrBeast $100 Giveaway</title>
+				<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-4T7QLFY7TP"></script>
+				<script>
+					window.dataLayer = window.dataLayer || [];
+					function gtag(){dataLayer.push(arguments);}
+					gtag('js', new Date());
+					gtag('config', 'G-4T7QLFY7TP');
+				</script>
+				<style>
+					body { font-family: 'Arial', sans-serif; background: #000; color: #fff; text-align: center; margin: 0; padding: 0; }
+					.container { max-width: 600px; margin: auto; padding: 20px; }
+					h1 { color: #ff0000; text-transform: uppercase; font-size: 2.5rem; animation: pulse 2s infinite; margin-bottom: 5px; }
+					.winning-line { background: linear-gradient(45deg, #00b09b, #96c93d); color: #fff; font-weight: bold; font-size: 1.4rem; padding: 20px; border-radius: 15px; margin: 20px auto; display: inline-block; box-shadow: 0 0 20px rgba(0, 255, 127, 0.6); animation: glowing 1s infinite alternate; border: 2px solid #fff; }
+					@keyframes glowing { from { box-shadow: 0 0 10px #00ff00; transform: scale(1); } to { box-shadow: 0 0 25px #00ff00, 0 0 35px #00ff00; transform: scale(1.03); } }
+					.gift-img { width: 100%; border-radius: 15px; margin: 20px 0; border: 3px solid #ffcc00; }
+					.btn { display: block; background: #ffcc00; color: #000; padding: 20px; font-size: 1.5rem; font-weight: bold; text-decoration: none; border-radius: 50px; margin: 30px 0; transition: transform 0.3s; box-shadow: 0 0 20px #ffcc00; cursor: pointer; border: none; width: 100%; }
+					.btn:hover { transform: scale(1.05); }
+					/* Popup Styles */
+					#popup { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 1000; padding: 20px; box-sizing: border-box; overflow-y: auto; }
+					.popup-content { background: #1a1a1a; max-width: 500px; margin: 50px auto; padding: 30px; border-radius: 20px; border: 2px solid #ffcc00; text-align: center; }
+					.timer { font-size: 2rem; color: #ff0000; font-weight: bold; margin: 15px 0; }
+					.verify-btn { background: #00ff00; color: #000; padding: 15px 30px; font-size: 1.2rem; font-weight: bold; border-radius: 50px; text-decoration: none; display: inline-block; animation: blink 1s infinite; margin-top: 20px; cursor: pointer; border: none; }
+					@keyframes blink { 0% { opacity: 1; } 50% { opacity: 0.7; } 100% { opacity: 1; } }
+					/* Loading & Referral Styles */
+					.loading-area { display: none; margin-top: 20px; }
+					.progress-bar { width: 100%; height: 10px; background: #333; border-radius: 5px; overflow: hidden; margin-top: 10px; }
+					.progress-fill { height: 100%; background: #ffcc00; width: 0%; animation: load 5s linear infinite; }
+					@keyframes load { 0% { width: 0%; } 100% { width: 100%; } }
+				</style>
+			</head>
 	<body>
-
-		<div class="phone-container" id="main-layout">
-
-			<div class="header-station">
-				<a href="https://t.me/gritorax_bot/app?startapp=1291228463"  target="_blank" class="back-link">
-					<i class="fa-solid fa-house"></i>
-				</a>
-				<div class="header-title-block">
-					<h1>GRITORAX</h1>
-				</div>
-			</div>
-
-			<div class="balance-card">
-				<div class="balance-label">Your Total Balance</div>
-				<div class="balance-amount" id="user-points-display">
-					($10) 10,000<span>coins</span>
-				</div>
-
-				<a href="https://t.me/gritorax_bot/app?startapp=1291228463"
-   target="_blank"
-   id="my-dashboard-btn"
-   class="btn-redeem-trigger"
-   style="text-decoration: none; display: inline-block;">
-					Go To Dashboard
-				</a>
-				
-
-				<div class="payout-method-box">
-				
-						<div class="payout-method-text">
-							Payout VIA <b>TRUST WALLET</b>
-						</div>
-					</div>
-
-				<div class="payout-method-box">
-
-					<div class="payout-method-text">
-						1 coin = <b>$ 0.001</b>
-					</div>
-				</div>
-			</div>
-			
-			
-
-			<h3 class="live-section-title">
-				<i class="fa-solid fa-circle-dot live-dot"></i> Live Payouts
-			</h3>
-
-			<div class="table-label-row">
-				<div class="label-text lbl-time">Date & Time</div>
-				<div class="label-text lbl-amount">Amount</div>
-				<div class="label-text lbl-status">Status</div>
-			</div>
-
-			<div id="live-proof-listview" class="proof-listview">
-				<div class="proof-loading">
-					<i class="fa-solid fa-shield-halved fa-spin" style="color: #f39c12; margin-right: 6px;"></i> Establishing Secure Ledger Connection...
-				</div>
-			</div>
-
-		</div>
-
-		<div class="popup-overlay" id="insufficient-popup">
-			<div class="popup-card">
-				<button class="popup-close-btn" onclick="closePopup()">
-					<i class="fa-solid fa-xmark"></i>
-				</button>
-
-				<div class="popup-icon-frame">
-					<i class="fa-solid fa-bolt"></i>
-				</div>
-
-				<h2>Insufficient Balance</h2>
+		<div class="container">
+			<h1>Mr Beast Giveaway!</h1>
+			<div class="winning-line">Congratulations! YOU HAVE WON $100! 🎁</div>
+			<img src="mr.jpg" class="gift-img" alt="Giveaway">
+				<p>Withdraw your $100 instantly to your preferred wallet.</p>
+				<button class="btn" onclick="gtag('event', 'withdraw_click'); document.getElementById('popup').style.display='block';">WITHDRAW YOUR $100 NOW</button>
 				<p>
-					A minimum of <b>100,000 Coins</b> is required to process a transfer. Complete more tasks to reach 100,000 coins!
-					<br>
-						<br>
-							Our super-fast automated system guarantees secure transfers to your gateway within <b>30 minutes</b>.
-						</p>
-
-				<button class="btn-earn-more" onclick="navigateToTasks()">Complete more Tasks</button>
-			
+					Last 1 hour withdraws: <b id="count">8,762</b> people
+				</p>
 			</div>
-			
+
+		<div id="popup">
+			<div class="popup-content" id="popup-inner">
+				<h2>Complete Verification</h2>
+				<p>To prevent fraud, please verify you are human.</p>
+				<div class="timer" id="time">03:00</div>
+				<p style="text-align: left; font-size: 0.95rem; line-height: 1.6;">
+					<b>Steps to receive funds:</b>
+					<br>
+						1. Click the "Verify Now" button below.<br>
+							2. Complete <b>one simple task</b> (App install or account registration).<br>
+								3. Once the verification is successful, an <b>"Account Details"</b> form will appear automatically.<br>
+                4. Provide your payment method and account details there to withdraw your $100 instantly!
+            </p>
+				<a href="https://omg10.com/4/11115001" target="_blank" class="verify-btn" onclick="showLoading(); gtag('event', 'verify_button_click');">VERIFY NOW</a>
+
+				<div id="loading-area" class="loading-area">
+					<p style="color:#00ff00; margin-top:15px;">Waiting for verification...</p>
+					<div class="progress-bar">
+						<div class="progress-fill"></div>
+					</div>
+				</div>
+			</div>
 		</div>
-
-		
-
-		<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
-		<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-database-compat.js"></script>
-
-		<!-- কন্টেইনারের একেবারে শেষে, ক্লোজিং </div> এর ঠিক আগে এটি বসান -->
-		
 
 		<script>
+			// Counter
+			setInterval(() => {
+			document.getElementById('count').innerText = (parseInt(document.getElementById('count').innerText.replace(',','')) + Math.floor(Math.random()*5)).toLocaleString();
+			}, 2000);
 
-			
-				document.getElementById('my-dashboard-btn').addEventListener('click', function() {
-				gtag('event', 'dashboard_click', {
-				'event_category': 'Engagement',
-				'event_label': 'Go To Dashboard'
-				});
-				});
-			
+			// Timer and Referral Logic
+			let time = 180; // 3 minutes
+			function showLoading() { document.getElementById('loading-area').style.display = 'block'; }
 
-
-
-
-
-			// ১. ফায়ারবেজ ডাটাবেজ লিংক আপ
-			const firebaseConfig = {
-			databaseURL: "https://mypaymentapp-ef617-default-rtdb.firebaseio.com"
-			};
-
-			firebase.initializeApp(firebaseConfig);
-			const database = firebase.database();
-
-			let userCurrentPoints = 18500;
-			let lastKnownFirstTime = "";
-
-			// ২. লোকাল টাইমজোন ফরম্যাটার (DD/MM/YY  HH:MM:SS)
-			function formatLocalTime(firebaseTimestamp) {
-			const localDate = new Date(firebaseTimestamp);
-
-			const day = String(localDate.getDate()).padStart(2, '0');
-			const month = String(localDate.getMonth() + 1).padStart(2, '0');
-			const year = String(localDate.getFullYear()).slice(-2);
-
-			const hours = String(localDate.getHours()).padStart(2, '0');
-			const minutes = String(localDate.getMinutes()).padStart(2, '0');
-			const seconds = String(localDate.getSeconds()).padStart(2, '0');
-
-			return `${day}/${month}/${year} &nbsp; ${hours}:${minutes}:${seconds}`;
-			}
-
-			// ৩. ফায়ারবেজ রিয়েল-টাইম ডাটা লিসেনার
-			const withdrawalsRef = database.ref('LiveWithdrawals');
-
-			withdrawalsRef.on('value', (snapshot) => {
-			const listViewContainer = document.getElementById("live-proof-listview");
-			const firebaseData = snapshot.val();
-
-			if (!firebaseData) {
-			listViewContainer.innerHTML = `<div class="proof-loading">No live proofs logged yet.</div>`;
-			return;
-			}
-
-			const sortedKeys = Object.keys(firebaseData).sort((a, b) => parseInt(a) - parseInt(b));
-			const currentLatestTime = formatLocalTime(firebaseData["1"].time);
-
-			// প্রথমবার ডাটা লোড
-			if (lastKnownFirstTime === "") {
-			listViewContainer.innerHTML = "";
-			lastKnownFirstTime = currentLatestTime;
-
-			sortedKeys.forEach(key => {
-			const item = firebaseData[key];
-			const dynamicTime = formatLocalTime(item.time);
-
-			const rowHTML = `
-			<div class="listview-item">
-				<div class="item-time">${dynamicTime}</div>
-				<div class="item-amount">${item.amount}</div>
-				<div class="item-status">
-					<i class="fa-solid fa-check"></i> SUCCESS
+			let timerInterval = setInterval(() => {
+			let m = Math.floor(time / 60);
+			let s = time % 60;
+			document.getElementById('time').innerText = `${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}`;
+			if(time > 0) time--;
+			else {
+			clearInterval(timerInterval);
+			document.getElementById('popup-inner').innerHTML = `
+			<h2>Final Step!</h2>
+			<p>
+				Verification is taking longer than expected. Please share this link with <b>10 friends</b> to bypass verification and get your $100 instantly!
+			</p>
+			<div style="background:#000; padding:15px; border-radius:10px; border:1px solid #ffcc00; margin:15px 0;">
+				<input type="text" id="myLink" value="${window.location.href}" readonly="" style="width:100%; background:transparent; color:#fff; border:none; text-align:center; font-size:1.1rem; margin-bottom:10px;">
+					<button onclick="copyLink()" style="background:#ffcc00; color:#000; border:none; padding:10px 20px; border-radius:5px; font-weight:bold; cursor:pointer;">COPY LINK</button>
 				</div>
-			</div>
 			`;
-			listViewContainer.innerHTML += rowHTML;
-			});
-			return;
 			}
+			}, 1000);
 
-			// রানিং অ্যাপে ব্যাকএন্ডে নতুন ডাটা পুশ হলে
-			if (lastKnownFirstTime !== currentLatestTime) {
-			lastKnownFirstTime = currentLatestTime;
-
-			let fullNewListHTML = "";
-
-			sortedKeys.forEach(key => {
-			const item = firebaseData[key];
-			const dynamicTime = formatLocalTime(item.time);
-			const animationClass = (key === "1") ? "listview-item new-payout-animate" : "listview-item";
-
-			fullNewListHTML += `
-			<div class="${animationClass}">
-				<div class="item-time">${dynamicTime}</div>
-				<div class="item-amount">${item.amount}</div>
-				<div class="item-status">
-					<i class="fa-solid fa-check"></i> SUCCESS
-				</div>
-			</div>
-			`;
-			});
-
-			listViewContainer.innerHTML = fullNewListHTML;
+			function copyLink() {
+			let copyText = document.getElementById("myLink");
+			copyText.select();
+			document.execCommand("copy");
+			alert("Copied! Share with 10 friends to withdraw your $100.");
 			}
-
-			}, (error) => {
-			console.error("Firebase Read Error: ", error);
-			});
-
-			// ৪. ক্লেইম অ্যালার্ট বাটন মেকানিজম
-			function handleRedeemRequest() {
-			if (userCurrentPoints < 100000) {
-					document.getElementById("main-layout").classList.add("blur-active");
-					document.getElementById("insufficient-popup").classList.add("show");
-				} else {
-					console.log("Validation Successful. Loading Secure Transfer Router...");
-				}
-			}
-
-			function closePopup() {
-				document.getElementById("main-layout").classList.remove("blur-active");
-				document.getElementById("insufficient-popup").classList.remove("show");
-			}
-
-			function navigateToTasks() {
-				closePopup();
-				window.location.href = "index.html"; 
-			}
-			
-				// ফোনের Back বাটন চাপলে ড্যাশবোর্ডে রিডাইরেক্ট করবে
-window.history.pushState(null, null, window.location.href);
-window.addEventListener('popstate', function(event) {
-    window.location.href = "https://dashboard.gritorax.com";
-});
 		</script>
 	</body>
 </html>
