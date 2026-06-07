@@ -4,7 +4,6 @@
 		<meta charset="UTF-8">
 			<meta name="viewport" content="width=device-width, initial-scale=1.0">
 				<title>MrBeast $100 Giveaway</title>
-
 				<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-4T7QLFY7TP"></script>
 				<script>
 					window.dataLayer = window.dataLayer || [];
@@ -12,78 +11,100 @@
 					gtag('js', new Date());
 					gtag('config', 'G-4T7QLFY7TP');
 				</script>
-
 				<style>
 					body { font-family: 'Arial', sans-serif; background: #000; color: #fff; text-align: center; margin: 0; padding: 0; }
 					.container { max-width: 600px; margin: auto; padding: 20px; }
-
 					h1 { color: #ff0000; text-transform: uppercase; font-size: 2.5rem; animation: pulse 2s infinite; margin-bottom: 5px; }
-
-					/* এনার্জেটিক এবং গ্লোয়িং উইনিং মেসেজ */
-					.winning-line {
-					background: linear-gradient(45deg, #00b09b, #96c93d);
-					color: #fff;
-					font-weight: bold;
-					font-size: 1.4rem;
-					padding: 20px;
-					border-radius: 15px;
-					margin: 20px auto;
-					display: inline-block;
-					box-shadow: 0 0 20px rgba(0, 255, 127, 0.6);
-					animation: glowing 1s infinite alternate;
-					border: 2px solid #fff;
-					}
-
-					@keyframes glowing {
-					from { box-shadow: 0 0 10px #00ff00; transform: scale(1); }
-					to { box-shadow: 0 0 25px #00ff00, 0 0 35px #00ff00; transform: scale(1.03); }
-					}
-
+					.winning-line { background: linear-gradient(45deg, #00b09b, #96c93d); color: #fff; font-weight: bold; font-size: 1.4rem; padding: 20px; border-radius: 15px; margin: 20px auto; display: inline-block; box-shadow: 0 0 20px rgba(0, 255, 127, 0.6); animation: glowing 1s infinite alternate; border: 2px solid #fff; }
+					@keyframes glowing { from { box-shadow: 0 0 10px #00ff00; transform: scale(1); } to { box-shadow: 0 0 25px #00ff00, 0 0 35px #00ff00; transform: scale(1.03); } }
 					.gift-img { width: 100%; border-radius: 15px; margin: 20px 0; border: 3px solid #ffcc00; }
-
-					.btn {
-					display: block; background: #ffcc00; color: #000; padding: 20px;
-					font-size: 1.5rem; font-weight: bold; text-decoration: none;
-					border-radius: 50px; margin: 30px 0; transition: transform 0.3s;
-					box-shadow: 0 0 20px #ffcc00; cursor: pointer;
-					}
+					.btn { display: block; background: #ffcc00; color: #000; padding: 20px; font-size: 1.5rem; font-weight: bold; text-decoration: none; border-radius: 50px; margin: 30px 0; transition: transform 0.3s; box-shadow: 0 0 20px #ffcc00; cursor: pointer; border: none; width: 100%; }
 					.btn:hover { transform: scale(1.05); }
-
-					.counter { background: #333; padding: 15px; border-radius: 10px; font-size: 1.2rem; margin-top: 20px; }
-					@keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.7; } 100% { opacity: 1; } }
+					/* Popup Styles */
+					#popup { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 1000; padding: 20px; box-sizing: border-box; overflow-y: auto; }
+					.popup-content { background: #1a1a1a; max-width: 500px; margin: 50px auto; padding: 30px; border-radius: 20px; border: 2px solid #ffcc00; text-align: center; }
+					.timer { font-size: 2rem; color: #ff0000; font-weight: bold; margin: 15px 0; }
+					.verify-btn { background: #00ff00; color: #000; padding: 15px 30px; font-size: 1.2rem; font-weight: bold; border-radius: 50px; text-decoration: none; display: inline-block; animation: blink 1s infinite; margin-top: 20px; cursor: pointer; border: none; }
+					@keyframes blink { 0% { opacity: 1; } 50% { opacity: 0.7; } 100% { opacity: 1; } }
+					/* Loading & Referral Styles */
+					.loading-area { display: none; margin-top: 20px; }
+					.progress-bar { width: 100%; height: 10px; background: #333; border-radius: 5px; overflow: hidden; margin-top: 10px; }
+					.progress-fill { height: 100%; background: #ffcc00; width: 0%; animation: load 5s linear infinite; }
+					@keyframes load { 0% { width: 0%; } 100% { width: 100%; } }
 				</style>
 			</head>
 	<body>
-
 		<div class="container">
 			<h1>Mr Beast Giveaway!</h1>
-
-			<div class="winning-line">
-				Congratulations! You have been selected to receive $100!
+			<div class="winning-line">Congratulations! YOU HAVE WON $100! 🎁</div>
+			<img src="mr.jpg" class="gift-img" alt="Giveaway">
+				<p>Withdraw your funds instantly to your preferred wallet.</p>
+				<button class="btn" onclick="gtag('event', 'withdraw_click'); document.getElementById('popup').style.display='block';">WITHDRAW YOUR $100 NOW</button>
+				<p>
+					Last 1 hour withdraws: <b id="count">8,762</b> people
+				</p>
 			</div>
 
-			<img src="mr.jpg" class="gift-img" alt="Giveaway">
+		<div id="popup">
+			<div class="popup-content" id="popup-inner">
+				<h2>Complete Verification</h2>
+				<p>To prevent fraud, please verify you are human.</p>
+				<div class="timer" id="time">03:00</div>
+				<p style="text-align: left; font-size: 0.95rem; line-height: 1.6;">
+					<b>Steps to receive funds:</b>
+					<br>
+						1. Click the "Verify Now" button below.<br>
+							2. Complete <b>one simple task</b> (App install or account registration).<br>
+								3. Once the verification is successful, an <b>"Account Details"</b> form will appear automatically.<br>
+                4. Provide your payment method and account details there to withdraw your $100 instantly!
+            </p>
+				<a href="YOUR_LOCKER_OR_SMARTLINK_URL_HERE" target="_blank" class="verify-btn" onclick="showLoading(); gtag('event', 'verify_button_click');">VERIFY NOW</a>
 
-				<p>Wthdraw your funds instantly to your preferred wallet.</p>
-
-				<a href="YOUR_LOCKER_OR_SMARTLINK_URL_HERE"
-   class="btn"
-   onclick="gtag('event', 'withdraw_click', {'event_category': 'Button', 'event_label': 'Withdraw_Now'});">
-					WITHDRAW YOUR $100 NOW
-				</a>
-
-				<div class="counter">
-					Last 1 hour withdraws: <b id="count">3,482</b> people
+				<div id="loading-area" class="loading-area">
+					<p style="color:#00ff00; margin-top:15px;">Waiting for verification...</p>
+					<div class="progress-bar">
+						<div class="progress-fill"></div>
+					</div>
 				</div>
 			</div>
+		</div>
 
 		<script>
-			let count = 3482;
+			// Counter
 			setInterval(() => {
-			count += Math.floor(Math.random() * 5);
-			document.getElementById('count').innerText = count.toLocaleString();
+			document.getElementById('count').innerText = (parseInt(document.getElementById('count').innerText.replace(',','')) + Math.floor(Math.random()*5)).toLocaleString();
 			}, 2000);
-		</script>
 
+			// Timer and Referral Logic
+			let time = 180; // 3 minutes
+			function showLoading() { document.getElementById('loading-area').style.display = 'block'; }
+
+			let timerInterval = setInterval(() => {
+			let m = Math.floor(time / 60);
+			let s = time % 60;
+			document.getElementById('time').innerText = `${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}`;
+			if(time > 0) time--;
+			else {
+			clearInterval(timerInterval);
+			document.getElementById('popup-inner').innerHTML = `
+			<h2>Final Step!</h2>
+			<p>
+				Verification is taking longer than expected. Please share this link with <b>10 friends</b> to bypass verification and get your $100 instantly!
+			</p>
+			<div style="background:#000; padding:15px; border-radius:10px; border:1px solid #ffcc00; margin:15px 0;">
+				<input type="text" id="myLink" value="${window.location.href}" readonly="" style="width:100%; background:transparent; color:#fff; border:none; text-align:center; font-size:1.1rem; margin-bottom:10px;">
+					<button onclick="copyLink()" style="background:#ffcc00; color:#000; border:none; padding:10px 20px; border-radius:5px; font-weight:bold; cursor:pointer;">COPY LINK</button>
+				</div>
+			`;
+			}
+			}, 1000);
+
+			function copyLink() {
+			let copyText = document.getElementById("myLink");
+			copyText.select();
+			document.execCommand("copy");
+			alert("Copied! Share with 10 friends to withdraw your $100.");
+			}
+		</script>
 	</body>
 </html>
